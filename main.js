@@ -13,18 +13,22 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
 
 
 function run(){
-let input = document.querySelector('input').value
+   
+let input = document.querySelector('input').value.trim()
 
-
+if (!input) {
+    document.querySelector('h1').innerHTML = 'Please enter a drink name.';
+    return; 
+}
 
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
 .then(res => res.json())
 .then(data => {
-    console.log(data.drinks
-    )
+    
    
  if (data.drinks && data.drinks.length > 0) {
+    document.querySelector('h1').innerHTML = 'Enter another cocktail or get another cocktail'
     document.querySelector('img').src = data.drinks[i].strDrinkThumb;
     document.querySelector('h4').innerHTML = data.drinks[i].strDrink;
     document.querySelector('h3').innerHTML = data.drinks[i].strInstructions;
