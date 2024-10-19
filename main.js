@@ -13,8 +13,7 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
 
 
 function run(){
-   
-let input = document.querySelector('input').value.trim()
+   let input = document.querySelector('input').value.trim()
 
 if (!input) {
     document.querySelector('h1').innerHTML = 'Please enter a drink name.';
